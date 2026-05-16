@@ -1,0 +1,74 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #34d399;
+  --color-accent-dim: #10b981;
+  --color-surface-base: #0f172a;
+  --color-surface-card: #1e293b;
+  --color-surface-raised: #253248;
+}
+
+/* ── Base Styles Overrides ───────────────────────────────────────────────── */
+body {
+  background-color: #0f172a; /* Modern Slate 950 - Koyu kömür arka plan */
+  color: #cbd5e1;           /* Slate 300 - Gözü yormayan açık gri yazılar */
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Explicit mono class for data */
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* ── Custom Premium Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
+  background: rgba(52, 211, 153, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 211, 153, 0.45);
+}
+
+/* Decorative top glow line */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #34d399, transparent);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ── Tailwind v4 Custom Utilities ────────────────────────────────────────── */
+@utility glow-accent {
+  text-shadow: 0 0 24px rgba(52, 211, 153, 0.2);
+}
+
+@utility card {
+  background: #1e293b;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 0.625rem;
+}
+
+@utility card-raised {
+  background: #253248;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 0.625rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Custom Keyframes for Layout Animations ───────────────────────────────── */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin-smooth {
+  to { transform: rotate(360deg); }
+}
